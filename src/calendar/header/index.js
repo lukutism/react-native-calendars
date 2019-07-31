@@ -94,14 +94,14 @@ class CalendarHeader extends Component {
       leftArrow = (
         <TouchableOpacity
           onPress={this.onPressLeft}
-          style={this.style.arrow}
-          hitSlop={{left: 20, right: 20, top: 20, bottom: 20}}
+          style={[this.style.arrow,{marginRight:25}]}
+          hitSlop={{left: 10, right: 10, top: 10, bottom: 10}}
           testID={testID ? `${CHANGE_MONTH_LEFT_ARROW}-${testID}`: CHANGE_MONTH_LEFT_ARROW}
         >
           {this.props.renderArrow
             ? this.props.renderArrow('left')
             : <Image
-              source={require('../img/previous.png')}
+              source={require('../img/arrow_left.png')}
               style={this.style.arrowImage}
             />}
         </TouchableOpacity>
@@ -110,13 +110,13 @@ class CalendarHeader extends Component {
         <TouchableOpacity
           onPress={this.onPressRight}
           style={this.style.arrow}
-          hitSlop={{left: 20, right: 20, top: 20, bottom: 20}}
+          hitSlop={{left: 10, right: 10, top: 10, bottom: 10}}
           testID={testID ? `${CHANGE_MONTH_RIGHT_ARROW}-${testID}`: CHANGE_MONTH_RIGHT_ARROW}
         >
           {this.props.renderArrow
             ? this.props.renderArrow('right')
             : <Image
-              source={require('../img/next.png')}
+              source={require('../img/arrow_right.png')}
               style={this.style.arrowImage}
             />}
         </TouchableOpacity>
@@ -131,14 +131,17 @@ class CalendarHeader extends Component {
     return (
       <View style={this.props.style}>
         <View style={this.style.header}>
-          {leftArrow}
+          
           <View style={{ flexDirection: 'row' }}>
             <Text allowFontScaling={false} style={this.style.monthText} accessibilityTraits='header'>
               {this.props.month.toString(this.props.monthFormat)}
             </Text>
             {indicator}
           </View>
-          {rightArrow}
+          <View  style={{display:'flex', flex:1, flexDirection:'row',justifyContent:'flex-end',right:0,top:0}}>
+            {leftArrow}
+            {rightArrow}
+          </View>
         </View>
         {
           !this.props.hideDayNames &&

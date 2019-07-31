@@ -22,7 +22,7 @@ export default class CalendarsScreen extends Component {
           onDayPress={this.onDayPress}
           style={styles.calendar}
           hideExtraDays
-          markedDates={{[this.state.selected]: {selected: true, disableTouchEvent: true, selectedDotColor: 'orange'}}}
+          markedDates={{[this.state.selected]: {color:'#299a8f',selectedColor:'#299a8f',selected: true, disableTouchEvent: true, selectedDotColor: 'orange'}}}
         />
         <Text style={styles.text}>Calendar with marked dates and hidden arrows</Text>
         <Calendar
@@ -31,6 +31,7 @@ export default class CalendarsScreen extends Component {
           minDate={'2012-05-10'}
           maxDate={'2012-05-29'}
           firstDay={1}
+          monthFormat={'MM yyyy'}
           markedDates={{
             '2012-05-23': {selected: true, marked: true},
             '2012-05-24': {selected: true, marked: true, dotColor: 'green'},

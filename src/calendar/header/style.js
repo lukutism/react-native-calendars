@@ -8,7 +8,6 @@ export default function(theme={}) {
   return StyleSheet.create({
     header: {
       flexDirection: 'row',
-      justifyContent: 'space-between',
       paddingLeft: 10,
       paddingRight: 10,
       marginTop: 6,
@@ -22,18 +21,12 @@ export default function(theme={}) {
       margin: 10
     },
     arrow: {
-      padding: 10,
+      backgroundColor:'#f0f0f0',
+      borderRadius:20,
       ...appStyle.arrowStyle
     },
     arrowImage: {
-      ...Platform.select({
-        ios: {
-          tintColor: appStyle.arrowColor
-        },
-        android: {
-          tintColor: appStyle.arrowColor
-        }
-      })
+      
     },
     week: {
       marginTop: 7,
