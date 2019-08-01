@@ -77,7 +77,7 @@ class ExpandableCalendar extends Component {
     this.numberOfWeeks = this.getNumberOfWeeksInMonth(XDate(this.props.context.date));
     this.openHeight = this.getOpenHeight();
     
-    const startHeight = props.initialPosition === POSITIONS.CLOSED ? this.closedHeight : this.openHeight;
+    const startHeight = this.openHeight;
     this._height = startHeight;
     this._wrapperStyles = {style: {}};
     this._headerStyles = {style: {}};
