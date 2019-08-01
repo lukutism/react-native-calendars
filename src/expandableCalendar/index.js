@@ -264,7 +264,7 @@ class ExpandableCalendar extends Component {
   };
   handlePanResponderEnd = () => {
     this._height = this._wrapperStyles.style.height;
-    this.bounceToPosition();
+    //this.bounceToPosition();
   };
 
   /** Animated */
@@ -299,7 +299,7 @@ class ExpandableCalendar extends Component {
 
   setPosition() {
     const isClosed = this._height === this.closedHeight;
-    this.setState({position: isClosed ? POSITIONS.CLOSED : POSITIONS.OPEN});
+    this.setState({position: POSITIONS.OPEN});
   }
   
   resetWeekCalendarOpacity(isOpen) {
