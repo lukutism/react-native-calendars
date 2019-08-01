@@ -332,12 +332,6 @@ class ExpandableCalendar extends Component {
 
   onDayPress = (value) => { // {year: 2019, month: 4, day: 22, timestamp: 1555977600000, dateString: "2019-04-23"}
     _.invoke(this.props.context, 'setDate', value.dateString, UPDATE_SOURCES.DAY_PRESS); 
-    
-    setTimeout(() => { // to allows setDate to be completed
-      if (this.state.position === POSITIONS.OPEN) {
-        this.bounceToPosition(this.closedHeight);
-      }
-    }, 0);
   }
 
   onVisibleMonthsChange = (value) => {
@@ -414,7 +408,7 @@ class ExpandableCalendar extends Component {
           left: 0, 
           right: 0, 
           top: HEADER_HEIGHT + (commons.isAndroid ? 8 : 4), // align row on top of calendar's first row
-          opacity: position === POSITIONS.OPEN ? 0 : 1
+          opacity: 0
         }}
         pointerEvents={position === POSITIONS.CLOSED ? 'auto' : 'none'}
       >
@@ -460,10 +454,12 @@ class ExpandableCalendar extends Component {
     return (
       <View style={[allowShadow && this.style.containerShadow, style]}>
         <Animated.View 
+        
           ref={e => {this.wrapper = e;}}
           style={{height: deltaY}} 
           {...this.panResponder.panHandlers}
         >
+          {console.log(deltaY)}
           <CalendarList
             testID="calendar"
             {...this.props}
