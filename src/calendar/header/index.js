@@ -138,9 +138,9 @@ class CalendarHeader extends Component {
             </Text>
             {indicator}
           </View>
-          <View  style={{display:'flex', flex:1, flexDirection:'row',justifyContent:'flex-end',right:0,top:0}}>
-            {leftArrow}
-            {rightArrow}
+          <View  style={{display:'flex', flex:1, flexDirection:'row',justifyContent:'space-around',right:0,top:0}}>
+          {rightArrow}            
+          {leftArrow} 
           </View>
         </View>
         {
